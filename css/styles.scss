@@ -302,12 +302,12 @@ dt {
 
 #header a, #chat a {
   color: white;
-  border: 1px solid #5d910b;
-  @include background(linear_gradient(#93bd20, #659e10));
+  border: 1px solid #c75b12;
+  @include background(linear_gradient(#c75b12, #e98300));
   @include border-radius(2px);
   @include box-shadow(inset 0px 1px 0px rgba(255,255,255,.3), 0px 3px 7px rgba(0,0,0,.7));
 
-  background-color: #93bd20;
+  background-color: #c75b12;
   padding: 10px 12px;
   margin-top: 6px;
   line-height:14px;
@@ -316,9 +316,8 @@ dt {
   text-align:center;
 
   &:hover {
-    @include background(linear_gradient(#749619, #527f0e));
-    background-color: #659e10;
-    border: 1px solid #527f0e;
+    background-color: #c75b12;
+    border: 1px solid #c75b12;
     @include box-shadow(inset 0px 1px 1px rgba(0,0,0,.2), 0px 1px 0px rgba(0,0,0,.0));
   }
 }

@@ -812,19 +812,19 @@ dt {
 /* line 303, styles.scss */
 #header a, #chat a {
   color: white;
-  border: 1px solid #5d910b;
-  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzkzYmQyMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzY1OWUxMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #93bd20), color-stop(100%, #659e10));
-  background: -moz-linear-gradient(#93bd20, #659e10);
-  background: -webkit-linear-gradient(#93bd20, #659e10);
-  background: linear-gradient(#93bd20, #659e10);
+  border: 1px solid #c75b12;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2M3NWIxMiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2U5ODMwMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #c75b12), color-stop(100%, #e98300));
+  background: -moz-linear-gradient(#c75b12, #e98300);
+  background: -webkit-linear-gradient(#c75b12, #e98300);
+  background: linear-gradient(#c75b12, #e98300);
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
   -moz-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.7);
   -webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.7);
   box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.7);
-  background-color: #93bd20;
+  background-color: #c75b12;
   padding: 10px 12px;
   margin-top: 6px;
   line-height: 14px;
@@ -834,49 +834,44 @@ dt {
 }
 /* line 318, styles.scss */
 #header a:hover, #chat a:hover {
-  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzc0OTYxOSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzUyN2YwZSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #749619), color-stop(100%, #527f0e));
-  background: -moz-linear-gradient(#749619, #527f0e);
-  background: -webkit-linear-gradient(#749619, #527f0e);
-  background: linear-gradient(#749619, #527f0e);
-  background-color: #659e10;
-  border: 1px solid #527f0e;
+  background-color: #c75b12;
+  border: 1px solid #c75b12;
   -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2), 0px 1px 0px transparent;
   -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2), 0px 1px 0px transparent;
   box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2), 0px 1px 0px transparent;
 }
 
-/* line 326, styles.scss */
+/* line 325, styles.scss */
 #chat {
   text-align: center;
 }
-/* line 329, styles.scss */
+/* line 328, styles.scss */
 #chat a {
   margin-right: 5px;
 }
 
-/* line 334, styles.scss */
+/* line 333, styles.scss */
 section {
   max-width: 650px;
   padding: 30px 0px 50px 0px;
   margin: 20px 0;
   margin-top: 70px;
 }
-/* line 340, styles.scss */
+/* line 339, styles.scss */
 section #title {
   border: 0;
   outline: none;
   margin: 0 0 50px 0;
   padding: 0 0 5px 0;
 }
-/* line 346, styles.scss */
+/* line 345, styles.scss */
 section #title h1 {
   font-family: 'OpenSansLight', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-size: 40px;
   text-align: center;
 }
-/* line 353, styles.scss */
+/* line 352, styles.scss */
 section #title p {
   color: #d7cfbe;
   font-family: 'OpenSansLight', "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -884,7 +879,7 @@ section #title p {
   font-size: 18px;
   text-align: center;
 }
-/* line 361, styles.scss */
+/* line 360, styles.scss */
 section #title .credits {
   font-size: 11px;
   font-family: 'OpenSansRegular', "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -892,56 +887,56 @@ section #title .credits {
   color: #696969;
   margin-top: -10px;
 }
-/* line 368, styles.scss */
+/* line 367, styles.scss */
 section #title .credits.left {
   float: left;
 }
-/* line 372, styles.scss */
+/* line 371, styles.scss */
 section #title .credits.right {
   float: right;
 }
 
 @media print, screen and (max-width: 720px) {
-  /* line 383, styles.scss */
+  /* line 382, styles.scss */
   #title .credits {
     display: block;
     width: 100%;
     line-height: 30px;
     text-align: center;
   }
-  /* line 389, styles.scss */
+  /* line 388, styles.scss */
   #title .credits .left {
     float: none;
     display: block;
   }
-  /* line 394, styles.scss */
+  /* line 393, styles.scss */
   #title .credits .right {
     float: none;
     display: block;
   }
 }
 @media print, screen and (max-width: 480px) {
-  /* line 404, styles.scss */
+  /* line 403, styles.scss */
   section {
     margin-top: 65px;
   }
 
-  /* line 408, styles.scss */
+  /* line 407, styles.scss */
   #header {
     position: absolute;
     height: auto;
   }
-  /* line 412, styles.scss */
+  /* line 411, styles.scss */
   #header nav {
     width: 100%;
     margin: 0px;
     padding: 0 4px;
   }
-  /* line 417, styles.scss */
+  /* line 416, styles.scss */
   #header nav li.downloads, #header nav li.title {
     display: none;
   }
-  /* line 421, styles.scss */
+  /* line 420, styles.scss */
   #header nav li, #header nav li.fork, #header nav a, #header nav li.fork a {
     display: inline-block;
     float: none;
