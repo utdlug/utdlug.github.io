@@ -21,10 +21,10 @@ permalink: /about/
 
 ### Officers
 
-* President - Aaron Lebo (programisto) - [aaron.matthew.lebo@gmail.com](mailto:aaron.matthew.lebo@gmail.com)
-* Vice President - Matthew Martin (phy1729) - [phy1729@utdallas.edu](mailto:phy1729@utdallas.edu)
-* Secretary - Michael Aldridge (maldridge) - [michael.aldridge@utdallas.edu](mailto:michael.aldridge@utdallas.edu)
-* Treasurer - Matthew Wynn (m_wynn) - [matthew.wynn@utdallas.edu](mailto:matthew.wynn@utdallas.edu)
+* President - Aaron Lebo (programisto) - [aaron.matthew.lebo@gmail.com](mailto:aaron.matthew.lebo@gmail.co)m
+* Vice President - Michael Aldridge (maldridge) - [michael.aldridge@utdallas.edu](mailto:michael.aldridge@utdallas.edu)
+* Secretary - Matthew Wynn (m_wynn) - [matthew.wynn@utdallas.edu](mailto:matthew.wynn@utdallas.edu)
+* Treasurer - Edward Choi (atecimpact) - [eyc140030@utdallas.edu](mailto:eyc140030@utdallas.edu) 
 
 ---
 
