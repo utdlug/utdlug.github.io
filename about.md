@@ -16,7 +16,7 @@ permalink: /about/
 ### General
 
 * Email: [utdlug@gmail.com](mailto:utdlug@gmail.com)
-* Online Chat: irc.oftc.net #utdlug or [scrollback.io/lug-utd](https://scrollback.io/lug-utd)
+* Online Chat: irc.oftc.net #utdlug or [webchat.oftc.net/?channels=utdlug](http://webchat.oftc.net/?channels=utdlug)
 * [Facebook Group](http://www.facebook.com/groups/utdlug)
 
 ### Officers
