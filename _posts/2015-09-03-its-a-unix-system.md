@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Its a UNIX System!
+title: It's a UNIX System!
 ---
 
 ### Saturday September 12, 2015 / 6:00 - 8:00 pm ECSS 4.910
