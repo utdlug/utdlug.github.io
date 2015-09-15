@@ -15,4 +15,4 @@ The Linux Users Group @ UTD coordinated with local Amazon reps to host a technic
 
 Here is [the video stream from this event](https://www.youtube.com/watch?v=KEus17RV1T8).
 
-Additionally, the slides are [available for download]().
+Additionally, the slides are [available for download](https://github.com/utdlug/lug-site/blob/master/public/res/aws.pptx?raw=true).
