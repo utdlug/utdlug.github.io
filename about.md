@@ -23,7 +23,7 @@ permalink: /about/
 
 * President - Michael Aldridge (maldridge) - [michael.aldridge@utdallas.edu](mailto:michael.aldridge@utdallas.edu)
 * Vice President - Matthew Wynn (m_wynn) - [matthew.wynn@utdallas.edu](mailto:matthew.wynn@utdallas.edu)
-* Treasurer - Aaron Lebo (programisto) - [aaron.matthew.lebo@gmail.com](mailto:aaron.matthew.lebo@gmail.co)
+* Treasurer - Dino Occhialini (dino) - [dbo130030](mailto:dbo130030@utdallas.edu)
 * Secretary - Tim Hewitt (TimTheEnchanter) - [tch140030@utdallas.edu](mailto:tch140030@utdallas.edu)
 * Webmaster - Anthony Lawn (thepaperpilot) - [anthony.lawn@utdallas.edu](mailto:anthony.lawn@utdallas.edu)
 
