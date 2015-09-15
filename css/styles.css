@@ -668,7 +668,7 @@ strong {
 
 /* line 178, styles.scss */
 .wrapper {
-  max-width: 650px;
+  max-width: 900px;
   margin: 0 auto;
   position: relative;
   padding: 0 20px;
@@ -776,7 +776,7 @@ dt {
 }
 /* line 268, styles.scss */
 #header nav {
-  max-width: 650px;
+  max-width: 950px;
   margin: 0 auto;
   padding: 0 10px;
   margin: 6px auto;
@@ -852,7 +852,7 @@ dt {
 
 /* line 333, styles.scss */
 section {
-  max-width: 650px;
+  max-width: 900px;
   padding: 30px 0px 50px 0px;
   margin: 20px 0;
   margin-top: 70px;
