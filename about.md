@@ -25,7 +25,6 @@ permalink: /about/
 * Vice President - Matthew Wynn (m_wynn) - [matthew.wynn@utdallas.edu](mailto:matthew.wynn@utdallas.edu)
 * Treasurer - Dino Occhialini (dinoocch) - [dino.occhialini@utdallas.edu](mailto:dino.occhialini@utdallas.edu)
 * Secretary - Tim Hewitt (TimTheEnchanter) - [timothy.hewitt@utdallas.edu](mailto:timothy.hewitt@utdallas.edu)
-* Webmaster - Anthony Lawn (thepaperpilot) - [anthony.lawn@utdallas.edu](mailto:anthony.lawn@utdallas.edu)
 
 ---
 
