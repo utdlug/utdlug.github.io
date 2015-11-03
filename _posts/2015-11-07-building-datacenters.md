@@ -3,7 +3,7 @@ layout: default
 title: "Building Datacenters: Presented by John Cummickel"
 ---
 
-### Saturday November 7th, 2015 / 5-8PM ECSN 2.201
+### Saturday November 7th, 2015 / 5-8PM ECSS 2.201
 
 * What is really involved in building a cloud datacenter?
 * What does a datacenter design look like?
