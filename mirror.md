@@ -28,7 +28,7 @@ Our mirror can be found at:
 https://lug.utdallas.edu/mirror/void/
 ~~~
 
-You can make this persistant using the following files:
+You can make this persistent using the following files:
 
 * /etc/xbps.d/00-repository-main.conf
 
