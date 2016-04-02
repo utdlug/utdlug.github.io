@@ -10,3 +10,9 @@ title: "Collaborative Coding with Linux"
 * Become familiar with standards involved in social coding.
 * Get involved in open-source projects.
 * Master working in a team on a large project.
+
+UPDATE: We've uploaded the [slides](/uploads/git/git-slides.pdf) from
+the event. The other resources mentioned during the presentation are
+* [Git Book](https://git-scm.com/book)
+* [Github Help](https://help.github.com)
+* [Gitlab Documentation](https://doc.gitlab.com)
