@@ -11,7 +11,7 @@ Interested in Cloud Computing? Want to learn how to deploy your own virtual serv
 
 The Linux Users Group @ UTD coordinated with local Amazon reps to host a technical introduction to AWS, demonstrating its many services and abilities.
 
-#### Update: 
+#### Update: {#update-aws}
 
 Here is [the video stream from this event](https://www.youtube.com/watch?v=KEus17RV1T8).
 
