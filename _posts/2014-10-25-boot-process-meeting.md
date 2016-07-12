@@ -9,6 +9,6 @@ Come join us on Oct. 25th at 5pm as we talk about the SUPER SCARY Linux/BSD boot
 
 For you hungry folks, we'll have pizza and Halloween candy, too.
 
-#### Update: 
+#### Update: {#update-boot-process}
 
 [The slides from the event](https://docs.google.com/presentation/d/198H7orfEDUb8tnrcgPNBEjAyMKK6f9AnTJt_L5FNcKA/edit?usp=sharing).
