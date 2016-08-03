@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Mirror
-permalink: /mirror/
+permalink: /mirror-info/
 ---
 
 ## Why
