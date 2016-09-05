@@ -923,7 +923,7 @@ section #title .credits.right {
 
   /* line 407, styles.scss */
   #header {
-    position: absolute;
+    position: relative;
     height: auto;
   }
   /* line 411, styles.scss */
