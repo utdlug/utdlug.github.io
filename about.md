@@ -1,5 +1,5 @@
 ---
-layout: default 
+layout: default
 title: About
 permalink: /about/
 ---
@@ -14,10 +14,11 @@ permalink: /about/
 
 ### Officers
 
-* President - Michael Aldridge (maldridge) - [michael.aldridge@utdallas.edu](mailto:michael.aldridge@utdallas.edu)
-* Vice President - Matthew Wynn (m_wynn) - [matthew.wynn@utdallas.edu](mailto:matthew.wynn@utdallas.edu)
-* Treasurer - Dino Occhialini (dinoocch) - [dino.occhialini@utdallas.edu](mailto:dino.occhialini@utdallas.edu)
-* Secretary - Joseph LaFreniere (lafrenierejm) - [joseph.lafreniere@utdallas.edu](mailto:joseph.lafreniere@utdallas.edu)
+* President - Joseph LaFreniere (lafrenierejm) - [lafrenierejm@utdallas.edu](mailto:lafrenierejm@utdallas.edu)
+* Vice President - Matthew Wynn (m_wynn) - [mwynn@utdallas.edu](mailto:mwynn@utdallas.edu)
+* Treasurer - Dino Occhialini (dinoocch) - [dino@utdallas.edu](mailto:dino@utdallas.edu)
+* Secretary - Nicklaus McClendon (kulinacs) - [kulinacs@utdallas.edu](mailto:kulinacs@utdallas.edu)
+* Past President - Michael Aldridge (maldridge) - [michael.aldridge@utdallas.edu](mailto:michael.aldridge@utdallas.edu)
 
 ---
 
