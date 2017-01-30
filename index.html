@@ -4,7 +4,7 @@ layout: default
 
 <div id="title">
   <h1>Welcome</h1>
-  
+
   <p>We are a student organization devoted to the teaching and advocacy of Linux, open source, and free software of all kinds. We welcome anyone and everyone from the Linux, Unix, BSD, and macOS realms, so come join us! All of our meetings are open to the public.</p>
 
   <div id="chat">
@@ -12,11 +12,49 @@ layout: default
   </div>
 </div>
 
-  <hr />
+<hr />
 
-{% for post in site.posts %}
+{% for post in paginator.posts %}
   <h1>{{ post.title }}</h1>
   {{ post.content }}
   <hr />
 {% endfor %}
 
+{% if paginator.total_pages > 1 %}
+  {% assign ellipsed = false %}
+  <div class="pagination">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">Previous</a>
+    {% else %}
+      <span class="previous">Previous</span>
+    {% endif %}
+    {% for page in (1..paginator.total_pages) %}
+      {% assign pages_minus_three = paginator.total_pages | minus : 3 %}
+      {% if page > 3 and page < pages_minus_three %}
+        {% assign page_plus_three = paginator.page | plus : 3 %}
+        {% assign page_minus_three = paginator.page | minus : 3 %}
+        {% if page < page_minus_three or page > page_plus_three %}
+          {% unless ellipsed %}
+            ...
+            {% assign ellipsed = true %}
+          {% endunless %}
+          {% continue %}
+        {% endif %}
+      {% endif %}
+      {% assign ellipsed = false %}
+      {% if page == paginator.page %}
+        {{ page }}
+      {% elsif page == 1 %}
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" aria-label="Page {{ page }}">{{ page }}</a>
+      {% else %}
+        <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}" aria-label="Page {{ page }}">{{ page }}</a>
+      {% endif %}
+    {% endfor %}
+
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next</a>
+    {% else %}
+      <span class="next">Next</span>
+    {% endif %}
+  </div>
+{% endif %}

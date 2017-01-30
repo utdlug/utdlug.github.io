@@ -10,5 +10,11 @@ url: "http://yourdomain.com" # the base hostname & protocol for your site
 twitter_username: jekyllrb
 github_username:  jekyll
 
+gems: [jekyll-paginate]
+
+paginate: 5
+paginate_path: "/feed/p:num"
+excerpt_separator: <!--more-->
+
 # Build settings
 markdown: kramdown
