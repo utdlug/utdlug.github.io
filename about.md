@@ -18,7 +18,6 @@ permalink: /about/
 * Vice President - Matthew Wynn (m_wynn) - [mwynn@utdallas.edu](mailto:mwynn@utdallas.edu)
 * Treasurer - Dino Occhialini (dinoocch) - [dino@utdallas.edu](mailto:dino@utdallas.edu)
 * Secretary - Nicklaus McClendon (kulinacs) - [kulinacs@utdallas.edu](mailto:kulinacs@utdallas.edu)
-* Past President - Michael Aldridge (maldridge) - [michael.aldridge@utdallas.edu](mailto:michael.aldridge@utdallas.edu)
 
 ---
 
