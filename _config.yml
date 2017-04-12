@@ -1,14 +1,15 @@
 # Site settings
-title: Your awesome title
+title: Linux Users Group @ UTD
 email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  We are a student organization devoted to the teaching and advocacy of Linux,
+  open source, and free software of all kinds. We welcome anyone and everyone
+  from the Linux, Unix, BSD, and macOS realms, so come join us! All of our
+  meetings are open to the public.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+url: "https://lug.utdallas.edu/" # the base hostname & protocol for your site
+twitter_username: utdlug
+github_username:  utdlug
 
 gems: [jekyll-paginate]
 
