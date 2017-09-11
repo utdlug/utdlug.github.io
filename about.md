@@ -9,7 +9,8 @@ permalink: /about/
 ### General
 
 * Email: [utdlug@gmail.com](mailto:utdlug@gmail.com)
-* Online Chat: irc.oftc.net #utdlug or [webchat.oftc.net/?channels=utdlug](http://webchat.oftc.net/?channels=utdlug)
+* Slack: [ecsutd.slack.com](https://ecsutd.slack.com) #lug
+* IRC: irc.oftc.net #utdlug or [webchat.oftc.net/?channels=utdlug](http://webchat.oftc.net/?channels=utdlug)
 * [Facebook Group](http://www.facebook.com/groups/utdlug)
 
 ### Officers
