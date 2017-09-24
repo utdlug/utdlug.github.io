@@ -1,0 +1,1 @@
+uploads/slideshow_binary/*.pdf filter=lfs diff=lfs merge=lfs -text

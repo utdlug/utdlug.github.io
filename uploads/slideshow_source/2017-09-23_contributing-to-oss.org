@@ -1,0 +1,204 @@
+#+TITLE: Contributing to Open Source Software
+#+AUTHOR: Joe LaFreniere (lafrenierejm)
+#+EMAIL: lafrenierejm@utdallas.edu
+#+DATE: 2017-09-23
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE: en
+#+OPTIONS: H:2 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS: TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:
+#+LINK_HOME:
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [bigger]
+#+BEAMER_FRAME_LEVEL: 2
+
+* Why does this talk exist?
+* What is open source software?
+** Notable OSS Examples
+   - Wikipedia, Unreal Engine 4, this presentation
+   - Firefox, Chromium
+   - VLC, LibreOffice
+   - Atom, vscode, Emacs, Vim
+   - Git, Subversion, 7zip
+   - OpenSSL, OpenGL
+   - Python, C, Swift
+   - Linux, *BSD
+** Open Source Initiative's Criteria for OSS
+   1. free redistribution
+   2. source code
+   3. derived works
+   4. integrity of author's source code
+   5. no discrimination against persons or groups
+   6. no discrimination against fields of endeavor
+   7. distribution of license
+   8. license must not be specific to a product
+   9. license must not restrict other software
+   10. license must be technology-neutral
+* What constitutes a contribution?
+** Types of Contributions
+   - source code
+   - formal documentation
+   - testing
+   - bug reporting
+   - answering questions
+** Source Code --- Technical
+   - follow code guidelines
+     - formal and informal
+     - editor settings
+       - whitespace cleanup
+       - [[https://github.com/tpope/vim-sleuth][tpope's sleuth.vim]]
+   - provide tests alongside code
+     - never reduce coverage
+   - strive for atomic commits
+   - linter and tests
+** Source Code --- Social
+   #+NAME: fig.xkcd.1296
+   #+ATTR_LATEX: width=\textwidth
+   [[./fig/xkcd-1296.png]]
+** Source Code --- Social
+   - provide context for the change
+     - reference issue tracker
+   - respond to questions and reviews
+     - treat continuous integration as review
+   - keep commit message subject short
+     - fewer than 50 chars
+     - detail changes in message body
+** Testing
+*** general                                                   :B_block:BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.48
+    :BEAMER_arg: <1->
+    :BEAMER_env: block
+    :END:
+    - language-specific tools
+    - multiple frameworks to choose from
+    - consistency
+      - sandboxed environment
+    - coverage metrics
+    - UTD offers SE 4367
+*** automated                                                 :B_block:BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.48
+    :BEAMER_arg: <2->
+    :BEAMER_env: block
+    :END:
+    - linters
+      - /undesirable bits of fiber and fluff/
+    - continuous integration
+      - Travis CI et al.
+    - self-testing build
+** Bug Reporting
+   - existing report?
+   - context for bug
+     - if needed, justify expectation
+   - establish minimum working example (MWE)
+   - provide details upfront
+     - software version
+     - operating system
+     - error messages
+   - ask for help obtaining details
+   - detail fix, mark resolved
+** Bug Reporting --- MWE
+*** Goals                                                     :B_frame:BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.55
+    :BEAMER_env: block
+    :END:
+   - "what helps others understand my problem?"
+   - "what gets in the way of understanding my problem?"
+   - reproducability
+     - side effectful -> explicitly list input
+*** [[http://www.minimalbeispiel.de/mini-en.html][Faulhammer on TeX]]                                        :B_block:BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.45
+    :BEAMER_env: block
+    :END:
+    - remove unnecessary packages
+    - built-in > user-defined
+    - strip unnecessary files
+    - provide needed files
+** Documentation --- Reference Materials
+   #+Caption: Excerpt of [[https://docs.python.org/3/library/socket.html][~docs.python.org/3/library/socket~]]
+   #+ATTR_LATEX: width=1.1\textwidth
+   [[file:./fig/python-reference.png]]
+** Documentation --- Reference Materials
+   - developer-facing
+   - consulted in place of source
+   - requires knowledge of source implementation
+   - inconsistency with source = undocumented behavior
+   - if changing code, insist on doc change
+     - mark with "NOMERGE" tag in meantime
+     - totally valid to request additional help
+** Documentation --- Examples
+   #+Caption: Example from [[https://docs.python.org/3/library/socket.html][~docs.python.org/3/library/socket~]]
+   #+ATTR_LATEX: width=1.1\textwidth
+   [[file:./fig/python-example.png]]
+** Documentation --- Examples
+   - developer- and user-facing
+   - consulted in place of source or reference
+   - inconsistency with source = the /worst/
+   - prevent breakage of project-affiliated examples
+     - notify third parties ahead of time
+     - update QA answers upon publication
+** Documentation --- Tutorials
+   #+Caption: Excerpt of [[https://docs.python.org/3/tutorial/classes.html][~docs.python.org/3/tutorial/classes~]]
+   #+ATTR_LATEX: width=1.1\textwidth
+   [[file:./fig/python-tutorial.png]]
+** Documentation --- Tutorials
+   - user-facing
+   - inconsistency with source = loss of credit
+   - not feasible to keep up-to date indefinitely
+     - specify versions, dates
+   - link to project documentation
+   - don't delete if outdated, just be upfront
+* How is OSS published?
+** Publishing OSS
+*** Maintained by Project                                     :B_block:BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.48
+    :BEAMER_env: block
+    :END:
+    - source code
+      - available per definition of OSS
+    - binaries prebuilt by project
+    - package manager generally preferred
+*** Package Management                                        :B_block:BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.48
+    :BEAMER_env: block
+    :END:
+    - language
+      - Python: pip, [[https://pypi.python.org/pypi][PyPi]]
+      - Ruby: [[https://rubygems.org/][RubyGems]]
+    - operating system
+      - Windows: [[https://chocolatey.org/packages][Chocolatey]]
+      - macOS: [[https://brew.sh/][Homebrew]]
+      - Linux: so many
+* Where are contributions managed?
+** Where are contributions managed?
+   - bug trackers
+   - forums, wikis, chat
+   - mailing lists
+   - code-hosting websites
+** Bug Trackers
+*** Git{Hub,Lab} issues
+*** Bugzilla
+    - most notably used by Mozilla for Firefox
+    - very formalized process
+*** Jira, Trello
+    - widely used in private sector
+** Forum, Wiki, Chat (IRC/Slack/Gitter/...)
+** Mailing Lists
+   - plaintext only
+     - adhere to text width
+     - format=flowed
+   - attached vs. inline
+   - send to individual, CC list
+   - typically mirrored on website
+** Code-Hosting Websites and Pull Requests
+   - pull request workflow
