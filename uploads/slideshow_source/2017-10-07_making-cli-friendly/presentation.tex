@@ -1,0 +1,462 @@
+\documentclass[]{beamer}
+\usetheme{Antibes}
+\usecolortheme{seagull}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+
+% colors
+% \usepackage[dvipsnames]{xcolor}
+
+% include external content
+\usepackage{fancyvrb}
+\usepackage{relsize}
+
+% Code formatting
+\newcommand{\cli}[1]{\texttt{#1}}
+\usepackage{listings}
+\lstset{%
+  breaklines=true,
+  linewidth=\textwidth,
+  captionpos=b, % place captions below
+}
+\lstnewenvironment{sh}{\lstset{language=sh}}{}
+\renewcommand{\sh}[1]{\lstinline[columns=fixed,language=sh]{#1}}
+
+% Metadata
+\newcommand{\mytitle}{Making the Command-Line Friendly}
+\title{\mytitle{}}
+\author{Joe LaFreniere (lafrenierejm)}
+\institute{Linux Users Group @ UT Dallas}
+\date{2017-10-07}
+\hypersetup{
+  pdfauthor={Joe LaFreniere (lafrenierejm)},
+  pdftitle=\mytitle{},
+  pdfkeywords={},
+  pdfsubject={},
+  pdflang={English}}
+\begin{document}
+
+\maketitle
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+\section{Requirements}
+\subsection{Story}
+\begin{frame}
+  \frametitle{User Story}
+  \begin{enumerate}
+  \item<1|only@1>
+    Boot our Linux machine.
+  \item
+    Login and start a window manager.
+  \item
+    Open shell 1 in terminal 1 and SSH into server 1.
+  \item
+    Open shell 2 in terminal 2 and SSH into server 1.
+  \item
+    Open a shell 3 in terminal 2 and SSH into server 2.
+  \item
+    Close the SSH connection in shell 1 and SSH into server 2.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Artifacts}
+  \begin{itemize}
+  \item
+    multiple terminal emulators
+  \item
+    multiple shells within each terminal, \(x\) total
+    \begin{itemize}
+    \item
+      may be initialized before or after first connection
+    \end{itemize}
+  \item
+    one or more SSH connection per shell, \(y\) total
+  \item
+    one or more remote servers, \(z\) total
+  \end{itemize}
+\end{frame}
+
+\subsection{Security}
+\begin{frame}
+  \frametitle{Securing Keys}
+  \begin{columns}
+    \column{0.5\textwidth}<1->
+    \begin{block}{Problem}
+      \begin{enumerate}
+      \item<2->
+        secrets must remain secret
+      \item<4->
+        secrecy during use
+      \item<6->
+        encryption key per secret
+      \item<8->
+        brute-force passphrase
+      \item<10->
+        remember passphrase
+      \item<12->
+        one passphrase per key
+      \item<14->
+        plaintext is insecure
+      \end{enumerate}
+    \end{block}
+
+    \column{0.5\textwidth}
+    \begin{block}{Solution}<1->
+      \begin{enumerate}
+      \item<3->
+        encrypt device storage
+      \item<5->
+        per-key encryption
+      \item<7->
+        per-key passphrase
+      \item<9->
+        long passphrase
+      \item<11->
+        password manager
+      \item<13->
+        cache plaintext keys
+      \item<15->
+        only cache keys in use
+      \end{enumerate}
+    \end{block}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Key Cache}
+  \begin{enumerate}
+  \item\pause
+    allow for single unlock per key
+    \begin{itemize}
+    \item
+      shells --- terminal emulators, TTYs
+    \item
+      graphical applications
+    \end{itemize}
+  \item\pause
+    cache keys only as they are used
+  \item\pause
+    be stateless WRT initialization order
+  \item\pause
+    provide mechanism for clearing cache
+    \begin{itemize}
+    \item
+      manually
+    \item
+      on timeout from cache
+    \item
+      on timeout from last use
+    \end{itemize}
+  \item\pause
+    include hooks for password manager
+  \end{enumerate}
+\end{frame}
+
+\section{Key Cache}
+\subsection{\sh{ssh-agent}}
+\begin{frame}
+  \frametitle{\sh{ssh-agent}}
+  \begin{itemize}
+  \item\pause
+    packaged with modern releases of OpenSSH
+  \item\pause
+    keys only accessible from owning user
+    \begin{itemize}
+    \item
+      vulnerable to malicious root
+    \end{itemize}
+  \item\pause
+    uses environment variables
+  \item\pause
+    separate instance per shell
+  \item\pause
+    not convenient for other applications
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Running \sh{agent}}
+  \begin{block}{interactive shell}
+    \lstinputlisting[%
+    language=sh,
+    label=lst:zshrc,
+    tabsize=4,
+    ]{./listings/zsh-agent-interactive.zsh}
+  \end{block}
+  \begin{block}{Problems}\pause
+    It's dumb
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Running \sh{agent} from RC}
+  \begin{block}{\sh{\$HOME/.zshrc}}
+    \lstinputlisting[%
+    language=sh,
+    label=lst:zshrc,
+    tabsize=4,
+    ]{./listings/zshrc-agent-naive.zsh}
+  \end{block}
+  \begin{block}{Problems}\pause
+    \begin{itemize}
+    \item
+      separate agent for each shell
+    \item
+      keys only cached within that session
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\subsection{\sh{keychain}}
+\begin{frame}
+  \frametitle{\sh{keychain}} 
+  \begin{itemize}
+  \item
+    front-end to \sh{ssh-agent}
+  \item
+    long-running process rather than per-login
+  \item
+    list secret keys in configuration
+  \item
+    unlock all keys upfront
+  \end{itemize}
+  \vspace{2em}
+  
+  homepage: \href{http://www.funtoo.org/Keychain}{funtoo.org/Keychain}
+  
+  git repo: \href{https://github.com/funtoo/keychain}{github.com/funtoo/keychain}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Running \sh{keychain}}
+  \begin{block}{\sh{\$HOME/.zshrc} (broken by comments)}<1|only@1>
+    \lstinputlisting[%
+    language=sh,
+    label=lst:zshrc,
+    tabsize=4,
+    ]{./listings/zshrc-keychain-commented.zsh}
+  \end{block}
+  \begin{block}{\sh{\$HOME/.zshrc}}<2|only@2>
+    \lstinputlisting[%
+    language=sh,
+    label=lst:zshrc,
+    tabsize=4,
+    ]{./listings/zshrc-keychain-working.zsh}
+  \end{block}
+\end{frame}
+
+\subsection{\sh{ssh-agent}}
+\begin{frame}
+  \frametitle{Back to raw \sh{agent}}
+  \begin{block}{\sh{\$HOME/.zshrc}}<1|only@1>
+    \fontsize{8}{0}
+    \selectfont{}
+    \lstinputlisting[%
+    language=sh,
+    label=lst:zshrc,
+    tabsize=4,
+    ]{./listings/zshrc-agent-complete.zsh}
+  \end{block}
+  \begin{block}{Remaining Problems}<2|only@2>
+    \begin{itemize}
+    \item
+      all keys in one agent
+      \begin{itemize}
+      \item
+        forwarding that agent exposes all keys
+      \end{itemize}
+    \item
+      requires cleanup of \sh{\$SSH_AUTH_SOCK} and \sh{\\tmp}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\subsection{\sh{ssh-ident}}
+\begin{frame}
+  \frametitle{To-Do}
+  \href{https://github.com/ccontavalli/ssh-ident}{github/ccontavlli/ssh-ident} claims to solve problems by storing each key in its own agent.
+  \begin{itemize}
+  \item
+    written in Python
+  \item
+    open PR for BASH autocompletion
+  \item
+    requires replacing \sh{ssh} binary for dependent applications
+  \end{itemize}
+\end{frame}
+
+\section{Requirements}
+\subsection{Accessibility}
+\begin{frame}
+  \frametitle{Managing Key Passphrases}
+  \begin{enumerate}
+  \item<1->
+    generation
+    \begin{itemize}
+    \item
+      length
+    \item
+      symbols
+    \end{itemize}
+  \item<1->
+    encryption
+  \item<1->
+    synchronization across devices
+  \item<2->
+    command-line interface
+    \begin{itemize}
+    \item
+      access from other scripts/apps
+    \item
+      autocompletion from shell
+    \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+\section{Password Manager}
+\subsection{\sh{pass}}
+\begin{frame}
+  \frametitle{\sh{pass} (passwordstore.org)}
+  ``The standard UNIX password manager''
+  \vspace{1em}
+  
+  \begin{itemize}
+  \item
+    generation runs \sh{tr} on \cli{/dev/urandom}
+    \begin{itemize}
+    \item
+      user sets length, symbols
+    \end{itemize}
+  \item
+    git for synchronization
+  \item
+    CLI-first
+    \begin{itemize}
+    \item
+      autocompletion for zsh, bash, fish
+    \end{itemize}
+  \end{itemize}
+  \vspace{1em}
+  homepage: \href{http://www.passwordstore.org}{passwordstore.org}
+  
+  git repo: \href{https://git.xz2c4.com/password-store/}{git.xz2c4.com/password-store}
+\end{frame}
+
+\section{Requirements}
+\subsection{Usability}
+\begin{frame}
+  \frametitle{Shell Autocompletion}
+  \begin{columns}
+    \column{0.5\textwidth}<1->
+    \begin{block}{General}
+      \begin{enumerate}
+      \item
+        executables from \sh{\$PATH}
+      \item
+        arguments
+        \begin{itemize}
+        \item
+          limit paths by type (\sh{find -type})
+        \end{itemize}
+      \item
+        executables' options
+      \item
+        option arguments
+      \end{enumerate}
+    \end{block}
+    \column{0.5\textwidth}<1|only@1>
+
+    \column{0.5\textwidth}<2|only@2>
+    \begin{block}{Password Manager}
+      \begin{enumerate}
+      \item
+        arguments
+        \begin{itemize}
+        \item
+          generate secret
+        \item
+          find filename
+        \item
+          copy secret
+        \end{itemize}
+      \item
+        directories, subdirectories
+      \item
+        filename
+      \end{enumerate}
+    \end{block}
+
+    \column{0.5\textwidth}<3|only@3>
+    \begin{block}{\sh{SSH}, \sh{SCP}, \sh{rsync}\ldots{}}
+      \begin{enumerate}
+      \item
+        hostname or IP address
+      \item
+        remote path
+        \begin{itemize}
+        \item
+          prompt if key not cached
+        \end{itemize}
+      \item
+        local path
+      \end{enumerate}
+    \end{block}
+  \end{columns}
+\end{frame}
+
+\section{zsh Autocompletion}
+\subsection{Writing}
+\begin{frame}
+  \frametitle{Getting Started}
+  \begin{itemize}
+  \item
+    primary source is \sh{man zshcompsys}
+    \begin{itemize}
+    \item
+       ``zsh completion system''
+    \end{itemize}
+  \item
+    completions loaded from \sh{\$fpath}
+  \item
+    filename must start with an underscore
+  \end{itemize}
+  \begin{enumerate}
+  \item
+    create a directory to house custom/prototype completions
+  \item
+    add that directory to \sh{\$fpath} from \cli{.zshrc}
+  \item
+    initialize completion in \cli{.zshrc}
+  \end{enumerate}
+\end{frame}
+
+\subsection{Using}
+\begin{frame}
+  \frametitle{Using Autocompletions}
+  \begin{block}{\sh{\$HOME/.zshrc}}
+    \lstinputlisting[%
+    language=sh,
+    label=lst:zshrc,
+    tabsize=4,
+    ]{./listings/zshrc-autocompletion.zsh}
+  \end{block}
+\end{frame}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
